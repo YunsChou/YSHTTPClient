@@ -47,7 +47,17 @@ typedef void (^MyNetworkProgress)(NSProgress *loadProgress);
 
 + (instancetype)shareClient;
 
-// 普通 GET/POST
+/**
+ 普通 GET/POST
+
+ @param URLString 请求地址
+ @param parameters 请求参数
+ @param httpMethod 请求方式（GET/POST）
+ @param requestType 请求数据类型
+ @param responseType 响应数据类型
+ @param success 成功回调
+ @param failure 失败回调
+ */
 - (NSURLSessionTask *)REQUEST:(NSString *)URLString
                    parameters:(NSDictionary *)parameters
                    httpMethod:(MyNetworkRequestMethod)httpMethod
@@ -56,7 +66,19 @@ typedef void (^MyNetworkProgress)(NSProgress *loadProgress);
                       success:(MyNetworkResponseSuccess)success
                       failure:(MyNetworkResponseFail)failure;
 
-// 批量上传二进制数据/文件
+/**
+ 批量上传二进制数据/文件
+
+ @param URLString 请求地址
+ @param parameters 请求参数
+ @param requestType 请求数据类型
+ @param responseType 响应数据类型
+ @param datas 二进制数据【数组】
+ @param files 文件数据【数组】
+ @param progress 上传进度回调
+ @param success 成功回调
+ @param failure 失败回调
+ */
 - (NSURLSessionDataTask *)UPLOAD:(NSString *)URLString
                       parameters:(NSDictionary *)parameters
                      requestType:(MyNetworkRequestType)requestType

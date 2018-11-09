@@ -20,16 +20,24 @@ static NSString * const kIOSApiURL = @"/api/data/iOS/10/1";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 设置baseURL
     [MyHTTPClient shareClient].baseURL = kBaseURL;
 }
 
 - (IBAction)requestAction:(id)sender {
-    [[MyHTTPClient shareClient] REQUEST:kIOSApiURL parameters:nil httpMethod:MyNetworkRequestMethod_GET requestType:MyNetworkRequestType_JSON responseType:MyNetworkResponseType_JSON success:^(id response) {
-        NSLog(@"请求成功：%@", response);
-    } failure:^(NSError *error) {
-        NSLog(@"请求失败：%@", error);
-    }];
+    // 发起请求
+    [[MyHTTPClient shareClient] REQUEST:kIOSApiURL
+                             parameters:nil
+                             httpMethod:MyNetworkRequestMethod_GET
+                            requestType:MyNetworkRequestType_JSON
+                           responseType:MyNetworkResponseType_JSON
+                                success:^(id response) {
+                                    NSLog(@"请求成功：%@", response);
+                                }
+                                failure:^(NSError *error) {
+                                    NSLog(@"请求失败：%@", error);
+                                }];
 }
 
 - (void)didReceiveMemoryWarning {

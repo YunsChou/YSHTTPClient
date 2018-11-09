@@ -38,7 +38,7 @@
                 failure(error);
             }
         }];
-    }else if (httpMethod == MyNetworkRequestMethod_POST){//POST请求
+    } else if (httpMethod == MyNetworkRequestMethod_POST) {//POST请求
         sessionTask = [manager POST:requestURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             if (success) {
                 success(responseObject);
